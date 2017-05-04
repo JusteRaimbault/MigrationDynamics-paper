@@ -140,10 +140,10 @@ The world \comment{Why do you talk about the “world” ? Do you mean the world
 An agent is a household of migrants, whose residence and job are located in cells (that can be different). Socio-economic structure of the population is captured by the distribution of wealth $g(w)$, which are then stratified into categories. At a given time, the utility difference between not moving and moving to cell $j$ from cell $i$, for a category $c$ is given by
 
 \[
-\Delta U_{i,j}^{(c)}(t) = \frac{Z_j^{(c)}- Z_i^{(c)}}{Z_0} + \frac{C_i^{(c)}- C_j^{(c)}}{C_0} - u_i^{(c)} - h_j^{(c)}
+\Delta U_{i,j}^{(c)}(t) = \frac{Z_j^{(c)}- Z_i^{(c)}}{Z_0} + \gamma \cdot \frac{C_i^{(c)}- C_j^{(c)}}{C_0} - u_i^{(c)} - h_j^{(c)}
 \]
 
-where $Z_i^{(c)}$ is generalized accessibility given by $Z_i^{(c)} = P_i \cdot \sum_k \left[E_k^{(c)}-W_k^{(c)}\right]\cdot \exp{\left(\frac{-d_{ij}}{d_0}\right)}$, with $d_{ij}$ effective travel distance \footnote{as the model does not focus on the role of transportation, we take euclidian distance, and $d_0$ captures typical commuting distance in both public transportation or car. A more complex model could include an explicit transportation network and modal choice depending on socio-economic category.} and $d_0$ commuting characteristic distance ; $C_i^{(c)}$ is the cost of life which is a function of cell and city variables, that will be taken as $C_i^{(c)} \propto P_i^{\alpha_0}\cdot  \tilde{P}_i^{\alpha_1}\cdot$ ; $u_i^{(c)}$ a baseline aversion to move and $h_j^{(c)}$ an exogenous variable corresponding to regulation policies ; $Z_0$ and $C_0$ dimensioning parameters.
+where $Z_i^{(c)}$ is generalized accessibility given by $Z_i^{(c)} = P_i \cdot \sum_k \left[E_k^{(c)}-W_k^{(c)}\right]\cdot \exp{\left(\frac{-d_{ij}}{d_0}\right)}$, with $d_{ij}$ effective travel distance \footnote{as the model does not focus on the role of transportation, we take euclidian distance, and $d_0$ captures typical commuting distance in both public transportation or car. A more complex model could include an explicit transportation network and modal choice depending on socio-economic category.} and $d_0$ commuting characteristic distance ; the parameter $\gamma$ is the ratio giving the relative importance of life cost compared to accessibility in the migration decisions ; $C_i^{(c)}$ is the cost of life which is a function of cell and city variables, that will be taken as $C_i^{(c)} \propto P_i^{\alpha_0}\cdot  \tilde{P}_i^{\alpha_1}\cdot$ ; $u_i^{(c)}$ a baseline aversion to move and $h_j^{(c)}$ an exogenous variable corresponding to regulation policies ; $Z_0$ and $C_0$ dimensioning parameters.
 
 \paragraph{Temporal Evolution}
 
@@ -196,12 +196,28 @@ The outcome of the model has many dimensions, and is measured through the follow
 
 \paragraph{Synthetic Data Generation}
 
-A synthetic mega-city region is generated following simple stylized facts for systems of cities. A polycentric structure, with each center having an exponential density decay
+A synthetic mega-city region is generated following simple stylized facts for systems of cities. A polycentric structure, each center having an exponential density decay, is created with random coordinates for centers. Population of centers follow a rank-size law of slope 1.2.
 
 
 \paragraph{Parameters}
 
-We summarise main parameters in table \comment[CL]{which table ?}[not there yet...].
+We summarise main parameters in table~\ref{tab:parameters}.
+
+\begin{table}
+\caption{Summary of main parameters\label{tab:parameters}}
+\centering
+\begin{tabular}{ |c|c|c|c| } 
+\hline
+Parameter & Name & Values & Process  \\\hline
+$\gamma$ & Cost/Accessibility ratio & $\log\gamma \in \left[5;8\right]$ & Mobility \\ 
+$u_0$ & Move aversion & $u_0\in$ & Risk aversion \\ 
+$\beta$ & Discrete Choices & $\beta\in$ & Determinism \\ 
+$g_w$ & Income Growth & & Wealth Increase  \\
+$d_0$ & Accessibility Decay & $d_0\in$ & Accessibility \\ 
+$\sigma$ & Wealth dispersion & $\sigma\in \left[0.1;1.0\right]$ & Economic Inequalities \\ 
+\hline
+\end{tabular}
+\end{table}
 
 
 
