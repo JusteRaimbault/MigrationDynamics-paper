@@ -34,49 +34,29 @@ This paper introduces an agent-based model of regional migration dynamics, appli
 
 
 %%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%
+\paragraph{Context}
 
 Over the last three decades, rural-to-urban migrant-workers have been a driving force for China's economy, raising attention on associated socio-economical issues. However, the importance of their economic diversity and social mobility has been poorly considered in the analysis of urban development strategy.
 We use an agent-based model to simulate residential dynamics of migrants in Pearl River Delta (PRD) mega city region, taking into account the full range of migrants’ socio-economical status and their evolution. Mega-city regions have become a new scale of Chinese State regulation, and PRD represent the most prosperous and dynamic one in term of migration waves, standing as an ideal unit of analysis.
-Our model unveils emergent patterns of dynamics, from micro behavior rules of discrete mobility choices. These choices are conditional to urban and economic environment, which evolution is controlled by meso-scale independent dynamics.
-The two scales are coupled through the dependence of discrete choice utilities to generalized accessibility that combines patch-level urban and economic context with a feedback of the dynamics themselves. This multi-scale aspect is crucial to distinguish endogenous form exogenous effects in regional migration patterns.
-We perform simulations to internally validate the model on synthetic data, by assessing statistical consistence and establishing phase diagrams across the parameter space.
-The application to the case study allows first to test how variation in socio-economic status yield more complex trajectories, and secondly to identify how the Party-State persist in controlling internal migration flows in a more sophisticated and strategically redefined way.
-Further work is directed towards a qualitative external validation of the model, by calibrating free parameters to reproduce meso-scale stylized facts, in order to guide interpretations of emergent outputs and potential policy applications.
-
-
-
-%%%%%%%%%%%%%%%%%%%%
-\subsection{Context}
 
 \paragraph{Mega-city Regions}
 
-Mega-city regions (MCRs) are integrated sets of cities and their surrounding suburban hinterlands across which labour and capital can be reallocated at very low cost~\cite{florida2008rise}. The expression ``Mega-city Region'' was first coined by Gottmann~\cite{gottman1961megalopolis} using the term megalopolis, that he defines as “urban area of several tens of millions of people, including several cities and major urban centers, and extending continuously over several 100 km”. It represents the new economic unit that emerges as metropolitan regions not only grow upward and become denser but also grow outward and into one another. \comment{source ?} These spaces result of the networking of a group of metropolitan areas deployed around very large cities and it is characterized by the “symbiosis between urban and rural areas”.\comment{source ?}  Other characteristic are migration flows, density of connections, and regional migration patterns. 
+Mega-city regions (MCRs) as defined by Florida, Gulden and Mellander are “integrated sets of cities and their surrounding suburban hinterlands across which labour and capital can be reallocated at very low cost”~\cite{florida2008rise}. This urban configuration recalls what Gottmann defined as megalopolis ~\cite{gottman1961megalopolis} in reference to the north-east coast of the United States. Despite this affinity in their spatial and functional configuration, MCRs perform on a different scale than megalopolis: they operate at a regional as well as at a global scale. Indeed, one of the main characteristics of MCRs is their “connectivity”: spatially, they branch out into nearby rural and metropolitan areas, and economically they grow beyond their physical border, becoming international. These densely populated regions do not have a single barycenter but merging into one another they turn into highly networked spaces connected through multiple nodes. The high density of connections and the polycentrism characterizing these new economic units facilitate migrations flows and encourage regional integration. . 
+In China, the development of mega-city regions has started right after the implementation of the Open Door Policy in 1978. But is the gradual decentralization of the State power - which occurred in the beginning of  1990 – that promote cities and more recently mega-city regions as a new scale of Chinese State regulation. \cite{xu2008governing} Fulong Wu~\cite{wu2003post} Fulong Wu~\cite {wu2016China’s}. The process of rapid economic growth and urban development molds new densely populated and industrially dynamic mega-city regions, of which the Pearl River Delta (PRD)\footnote{The unit of our model is PRD Mega City Region and not PRD Mega Urban Region which includes also Hong Kong and Macao}.is the most obvious example. The area was designed in 1988 as a “ comprehensive economic reform area”, and was granted many “one step ahead” policies to attract foreign capital. Evolving into the most important exporter center since the economic reform, the Pearl River Delta counts today a population of …and represents the most dynamic MCR in terms of migration waves ().
+.
+
+\paragraph{Migrant Workers}
+Taking the PRD as the spatial unit of the model, we aim to reproduce migrant workers’ residential patterns taking into account the full range of their socio-economical status. A broad range of Chinese and western studies have examined migration patterns and key related issues from different perspectives. However, in most of these studies migrant workers are generally considered and treated as a uniform category, which stand at the bottom of the urban society, carrying the stigma of the rural household registration system. The rural-urban dual structure has been for years the only approach to define and understand migrant-workers, but the process of rapid economic growth China have been experiencing accelerated social transformation. We postulate that studying migrant workers, by merely considering their hukou status and place of registration is not sufficient anymore to apprehend such a complex and diversified social category. Others aspects such as migrant workers economical, cultural and human capital should be taken into account.
+Especially 3 dimension can help differentiate number of migrant-workers sub-categories: (i) the professional dimension, which not only determines migrants’ economical situation but also influences their trajectory and the duration of their staying in the city as well as their residential choice; (ii) the residential Dimension : which impacts all aspects of migrants’ urban lives – patterns of urban settlement, housing choices, residential conditions, relation with the city, neighborhood activities etc. The Generational Dimension.  \footnote {The generational dimension is not taken into account in the model, as simulated dynamics correspond to rather short time scales, between 10 and 20 years.}
 
 
 
-\paragraph{Pearl River Delta}
-
-Since the gradual decentralization of the state power which occurred in the beginning of  1990 Mega-city regions have become a new scale of Chinese State regulation, and in particular the pearl River Delta, represent the most prosperous and dynamic one in term of migration waves.\comment[CL]{check source} \comment[JR]{I found this paper \cite{xu2008governing} on governance of MCR in China, with PRD as case study ; maybe a good backup for the previous fact ? There is also this paper by Fulong Wu~\cite{wu2003post} studying how Shangai as an ``entrepreunarial city'' (to be distinguished from entrepreunarial activities in the city, in the sense that the first corresponds to structural spatial actions to raise competitiveness) is an initiative and strategy of the ``Post-Socialist State''.}
-That’s why we choose PRD as our unit of study. Since the Open Door Policy was implemented in 1978 the PRD launched a process of rapid economic and social transformation, becoming a global manufacturing region attracting an increasing number of migrant-workers from all over China. In fact, PRD was designed as an open economic zone in 1984, and was granted many ‘one step ahead’ policies to attract foreign capital, becoming the most important exporter center since economic reform. That results in an astonishing rise of population in the area. That today count more than 50 million people.\comment{source ?} If during the first year of the opening-up reforms the barycenter of the region was Guangzhou - the provincial capital, over the last decade PRD has become increasing polycentric.
-Taking PRD as the unit of our model we try to reproduce migrants residential patterns taking into account the full range of migrants’ socio-economical status and their evolution. 
+All these sub-categories have different mobility patterns, that we simulate in the model.
+Considering this diversity and translating it in qualitative stylized facts that correspond to precise patterns of synthetic data, this model aims at establishing a new perspective for understanding China’s urban and regional mobility employing a more qualitative approach, specifying the mechanisms through which Party-State shape the parameters of migrants’ choices. 
 
 
-
-\paragraph{Migrant Workers in PRD}
-
-
-Even though migrants workers are generally considered and treated as a uniform category, previous research~\cite{losavio2016analyser}, based on qualitative interviews and sociological observation, showed how considering their economical, cultural and human capital migrants workers are a very diversified social category. Especially 3 dimension are fundamental to understand migrant workers:
-\begin{itemize}
-\item Professional Dimension : industry, construction, private sector, services (will change not only their economical situation but which influence  migrants’ trajectory and the staying duration in the city and their residential choice.
-\item Residential Dimension : We could recognize two subcategories, with different socio-economic situations: (i) Temporary - migrants working in the construction sector, who are really mobile, changing city or province according to the labour demand;  seasonal migrants workers, most of the time are peasants working as farmer and cultivating their land who come to the urban area to sell their product at the city price but without paying the running costs temporary migrants’ trajectory are more difficult to detect since they move in a discretional way ; (ii) Permanent :  Who are living in the city for more than 6 months and are renting a room or apartment depending on their: Economic situation (revenues), Social network, Proximity to the work place
-\item Generational Dimension. \textit{this dimension is not taken into account in the model for now, as simulated dynamics correspond to rather short time scales, between 10 and 20 years.}
-\end{itemize}
-
-
-All these sub-categories have different mobility patterns, that we try to simulate in our model.
-
-Considering this diversity and translating it in qualitative stylized facts that correspond to precise patterns of synthetic data, this model aims at establishing a new perspective for understanding China’s urban and regional mobility employing a more qualitative approach, specifying the mechanisms through which Party-State shape the parameters of migrants’ choices. \comment[CL]{The points-based hukou system represents one of these mechanisms. It would be great to add it into the model.}[(JR) Yes indeed, I'm looking into that.]
 
 
 
